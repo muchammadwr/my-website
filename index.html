@@ -9,10 +9,25 @@
       content="Portfolio of Muchammad Wildan Alkautsar, a professional Data Analyst specializing in Data Science, Business Intelligence, Machine Learning, and Business Analytics."
     />
     <meta name="author" content="Muchammad Wildan Alkautsar" />
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muchammadwr.github.io/" />
+    <meta
+      property="og:title"
+      content="Muchammad Wildan Alkautsar | Data Analyst Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Transforming raw business challenges into actionable insights with Python, SQL, Power BI, and Scikit-learn."
+    />
+    <meta property="og:image" content="assets/images/profile.jpg" />
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
+    <!-- A. Header & Navigation -->
     <header class="header" id="header">
       <div class="container nav-container">
         <a href="#home" class="logo" aria-label="Home page">
@@ -38,7 +53,118 @@
             </li>
           </ul>
         </nav>
+        <div class="nav-actions">
+          <!-- Theme Toggle Button -->
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            aria-label="Toggle dark and light mode"
+          >
+            <svg
+              class="sun-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            id="menu-toggle"
+            class="icon-btn hamburger"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
       </div>
     </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <section class="section hero" id="home">
+        <div class="container hero-container">
+          <div class="hero-content reveal">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-title">Muchammad Wildan Alkautsar</h1>
+            <h2 class="hero-subtitle">
+              Data Analyst <span>|</span> Aspiring Data Scientist
+            </h2>
+            <p class="hero-description">
+              Passionate about transforming unstructured financial and
+              operational data into clear, strategic business solutions through
+              rigorous analytical modeling, exploratory analysis, and
+              interactive dashboarding.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+
+            <div class="social-links hero-socials">
+              <a
+                href="https://linkedin.com/in/muchammadwr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                >LinkedIn</a
+              >
+              <a
+                href="https://github.com/muchammadwr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                >GitHub</a
+              >
+            </div>
+          </div>
+
+          <div class="hero-image-wrapper reveal">
+            <figure class="profile-figure">
+              <img
+                src="assets/images/profile.jpg"
+                alt="Muchammad Wildan Alkautsar - Data Analyst"
+                class="profile-img"
+                width="340"
+                height="340"
+                loading="eager"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
