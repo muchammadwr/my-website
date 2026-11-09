@@ -23,7 +23,7 @@ function initThemeToggle() {
   if (storedTheme) {
     document.documentElement.setAttribute("data-theme", storedTheme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.setAttribute("data-theme", dark);
+    document.documentElement.setAttribute("data-theme", "dark"); // FIX: "dark" was unquoted (ReferenceError)
   }
 
   themeBtn.addEventListener("click", () => {

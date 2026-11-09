@@ -106,6 +106,9 @@ ul {
 
 .section {
   padding: 5rem 0;
+  scroll-margin-top: var(
+    --header-height
+  ); /* FIX: prevent fixed header from covering section top on anchor jump */
 }
 
 .section-title {
