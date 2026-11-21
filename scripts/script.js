@@ -1,184 +1,436 @@
 /**
- * Personal Portfolio Modular Script
- * Vanilla ES6+ JavaScript
+ * Monochrome Data Analyst Portfolio
+ * Modular ES6+ Vanilla JavaScript
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-  initThemeToggle();
-  initMobileNav();
-  initActiveNavOnScroll();
+/* ==========================================================================
+   1. CENTRALIZED PROJECT DATA STORE
+   Add, edit, or remove projects below without touching HTML markup.
+   ========================================================================== */
+const PROJECTS_DATA = [
+  {
+    id: 'cfpb-bofa-complaints',
+    title: 'Bank of America CFPB Consumer Complaints Analysis (2017–2023)',
+    category: 'Financial Data Analytics & BI',
+    thumbnail: 'assets/images/project-1.jpg',
+    description:
+      'Comprehensive longitudinal analysis of multi-year Consumer Financial Protection Bureau (CFPB) records evaluating complaint volume, product dispute concentration, and response timeliness.',
+    businessProblem:
+      'High-volume recurring consumer disputes across credit reporting and checking accounts increased operational resolution overhead and regulatory escalation risk.',
+    objectives: [
+      'Quantify year-over-year complaint growth across financial product lines.',
+      'Identify geographic hotspots and root-cause sub-issues driving consumer escalations.',
+      'Benchmark timely response rates and non-monetary relief distributions.'
+    ],
+    methodology:
+      'Cleaned and standardized raw CFPB datasets using Python (Pandas), engineered temporal seasonality features, and built interactive drill-down KPI views in Power BI.',
+    technologies: ['Python', 'Pandas', 'SQL', 'Power BI'],
+    keyFindings:
+      'Credit reporting and improper use of credit reports accounted for over 52% of post-2020 volume spikes, enabling targeted workflow triage recommendations.',
+    githubUrl: 'https://github.com/muchammadwr',
+    liveDemoUrl: 'https://muchammadwr.github.io/',
+    gallery: [
+      'assets/images/project-1.jpg'
+    ]
+  },
+  {
+    id: 'msme-supply-chain-audit',
+    title: 'Multi-Outlet Automotive Supply Chain Data Audit & Demand Analysis',
+    category: 'Operations & Data Engineering',
+    thumbnail: 'assets/images/project-2.jpg',
+    description:
+      'Data cleansing, deduplication, and SKU velocity analysis across 10,000+ raw multi-outlet transaction rows for an automotive parts distributor.',
+    businessProblem:
+      'Fragmented point-of-sale exports contained duplicate invoices, inconsistent SKU naming conventions, and blind spots in branch-level inventory turnover.',
+    objectives: [
+      'Establish an automated validation pipeline to deduplicate 500+ cross-branch transaction anomalies.',
+      'Classify fast-moving vs. slow-moving inventory items across outlets.',
+      'Deliver a clean analytical baseline for procurement forecasting.'
+    ],
+    methodology:
+      'Applied deterministic rule-based deduplication in Python and SQL, followed by ABC inventory stratification and margin contribution analysis.',
+    technologies: ['Python', 'Pandas', 'SQL', 'Excel'],
+    keyFindings:
+      'Eliminated 8.4% reporting distortion caused by duplicate branch entries and isolated the top 18% of SKUs generating 74% of gross turnover.',
+    githubUrl: 'https://github.com/muchammadwr',
+    liveDemoUrl: '',
+    gallery: [
+      'assets/images/project-2.jpg'
+    ]
+  },
+  {
+    id: 'banking-churn-segmentation',
+    title: 'Banking Customer Classification & Behavioral Clustering',
+    category: 'Machine Learning & Segmentation',
+    thumbnail: 'assets/images/project-3.jpg',
+    description:
+      'Supervised classification and unsupervised customer segmentation across 2,512 banking transaction records to predict retention risk and group behavioral profiles.',
+    businessProblem:
+      'Uniform marketing outreach yielded diminishing retention returns due to unsegmented customer transaction behaviors and churn triggers.',
+    objectives: [
+      'Train an interpretable classification model to flag high-churn-risk accounts.',
+      'Segment customers into distinct behavioral clusters using unsupervised learning.',
+      'Translate cluster centroids into actionable retention playbooks.'
+    ],
+    methodology:
+      'Evaluated Decision Tree classifiers with cross-validation and applied K-Means clustering (k=3) validated via Silhouette scoring in Scikit-learn.',
+    technologies: ['Python', 'Scikit-learn', 'NumPy', 'Matplotlib'],
+    keyFindings:
+      'Decision Tree classification achieved 95.77% accuracy, while K-Means (k=3, Silhouette 0.49) separated high-tenure savers from low-engagement transactional users.',
+    githubUrl: 'https://github.com/muchammadwr',
+    liveDemoUrl: '',
+    gallery: [
+      'assets/images/project-3.jpg'
+    ]
+  }
+];
+
+/* ==========================================================================
+   2. APPLICATION INITIALIZATION
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  initThemeManager();
+  initMobileNavigation();
+  initActiveNavObserver();
+  renderProjectsGrid(PROJECTS_DATA);
+  initProjectModal();
   initScrollReveal();
-  initContactFormValidation();
+  initContactForm();
   initBackToTop();
 });
 
-/* --------------------------------------------------------------------------
-   1. Dark / Light Theme Toggle with LocalStorage
-   -------------------------------------------------------------------------- */
-function initThemeToggle() {
-  const themeBtn = document.getElementById("theme-toggle");
-  const storedTheme = localStorage.getItem("theme");
+/* ==========================================================================
+   3. DARK / LIGHT MONOCHROME THEME MANAGER
+   Default: Dark Mode unless user has a saved preference or system light preference
+   ========================================================================== */
+function initThemeManager() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('portfolio-theme');
 
-  // Apply saved theme or system preference
-  if (storedTheme) {
-    document.documentElement.setAttribute("data-theme", storedTheme);
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.setAttribute("data-theme", "dark"); // FIX: "dark" was unquoted (ReferenceError)
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    root.setAttribute('data-theme', savedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    root.setAttribute('data-theme', 'light');
+  } else {
+    root.setAttribute('data-theme', 'dark');
   }
 
-  themeBtn.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
+  toggleBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('portfolio-theme', next);
   });
 }
 
-/* --------------------------------------------------------------------------
-   2. Responsive Mobile Navigation
-   -------------------------------------------------------------------------- */
-function initMobileNav() {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
-  const navLinks = document.querySelectorAll(".nav-link");
+/* ==========================================================================
+   4. DYNAMIC PROJECT CARD RENDERER
+   ========================================================================== */
+function renderProjectsGrid(projects) {
+  const grid = document.getElementById('projects-grid');
+  if (!grid) return;
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navMenu.classList.toggle("active");
-    menuToggle.setAttribute("aria-expanded", isOpen);
+  grid.innerHTML = projects
+    .map(
+      (project) => `
+      <article class="project-card card reveal" data-project-id="${project.id}" tabindex="0" role="button" aria-label="Open case study: ${project.title}">
+        <div class="project-thumb-wrapper">
+          <img src="${project.thumbnail}" alt="${project.title} preview" class="project-img" loading="lazy" width="600" height="375">
+          <span class="project-hover-badge">View Project &nearr;</span>
+        </div>
+        <div class="project-body">
+          <span class="project-category">${project.category}</span>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-summary">${project.description}</p>
+          <div class="project-tags">
+            ${project.technologies.map((tech) => `<span class="tech-tag">${tech}</span>`).join('')}
+          </div>
+        </div>
+      </article>
+    `
+    )
+    .join('');
+}
+
+/* ==========================================================================
+   5. ACCESSIBLE ZOOM MODAL CONTROLLER (EVENT DELEGATION + FOCUS MANAGEMENT)
+   ========================================================================== */
+function initProjectModal() {
+  const grid = document.getElementById('projects-grid');
+  const modalBackdrop = document.getElementById('project-modal');
+  const modalBody = document.getElementById('modal-body');
+  const closeBtn = document.getElementById('modal-close');
+  let lastFocusedElement = null;
+
+  if (!grid || !modalBackdrop || !modalBody || !closeBtn) return;
+
+  function openModal(projectId) {
+    const project = PROJECTS_DATA.find((item) => item.id === projectId);
+    if (!project) return;
+
+    lastFocusedElement = document.activeElement;
+
+    const objectivesHtml = project.objectives
+      .map((obj) => `<li>${obj}</li>`)
+      .join('');
+
+    const techHtml = project.technologies
+      .map((tech) => `<span class="tech-tag">${tech}</span>`)
+      .join('');
+
+    const galleryHtml =
+      project.gallery && project.gallery.length > 1
+        ? `<div class="modal-gallery">
+            ${project.gallery
+              .map(
+                (imgSrc, index) =>
+                  `<img src="${imgSrc}" alt="${project.title} view ${index + 1}" loading="lazy">`
+              )
+              .join('')}
+          </div>`
+        : '';
+
+    const liveDemoBtn = project.liveDemoUrl
+      ? `<a href="${project.liveDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Live Demo &nearr;</a>`
+      : '';
+
+    modalBody.innerHTML = `
+      <img src="${project.thumbnail}" alt="${project.title}" class="modal-hero-img">
+      <p class="modal-meta">${project.category}</p>
+      <h3 class="modal-title" id="modal-title">${project.title}</h3>
+      <p class="modal-desc">${project.description}</p>
+
+      <div class="modal-grid">
+        <div class="modal-block">
+          <h4>Business Problem</h4>
+          <p>${project.businessProblem}</p>
+        </div>
+        <div class="modal-block">
+          <h4>Objectives</h4>
+          <ul>${objectivesHtml}</ul>
+        </div>
+        <div class="modal-block">
+          <h4>Analytical Methodology</h4>
+          <p>${project.methodology}</p>
+        </div>
+        <div class="modal-block modal-findings">
+          <h4>Key Findings &amp; Impact</h4>
+          <p>${project.keyFindings}</p>
+        </div>
+      </div>
+
+      <div class="project-tags" style="margin-bottom: 1.5rem;">
+        ${techHtml}
+      </div>
+
+      ${galleryHtml}
+
+      <div class="modal-actions">
+        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Repository &nearr;</a>
+        ${liveDemoBtn}
+      </div>
+    `;
+
+    modalBackdrop.hidden = false;
+    // Trigger reflow for CSS scale transition
+    requestAnimationFrame(() => {
+      modalBackdrop.classList.add('is-open');
+    });
+
+    document.body.classList.add('modal-open');
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modalBackdrop.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+
+    setTimeout(() => {
+      modalBackdrop.hidden = true;
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }, 250);
+  }
+
+  // Event delegation for clicking or pressing Enter/Space on any project card
+  grid.addEventListener('click', (event) => {
+    const card = event.target.closest('.project-card');
+    if (card) {
+      openModal(card.dataset.projectId);
+    }
   });
 
-  // Close mobile nav when clicking any link
+  grid.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      const card = event.target.closest('.project-card');
+      if (card) {
+        event.preventDefault();
+        openModal(card.dataset.projectId);
+      }
+    }
+  });
+
+  // Close actions: X button, backdrop click, Escape key
+  closeBtn.addEventListener('click', closeModal);
+
+  modalBackdrop.addEventListener('click', (event) => {
+    if (event.target === modalBackdrop) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modalBackdrop.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+
+  // Trap keyboard focus inside modal while open
+  modalBackdrop.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+
+    const focusable = modalBackdrop.querySelectorAll(
+      'button, a[href], input, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+/* ==========================================================================
+   6. MOBILE NAVIGATION & SCROLL SPY
+   ========================================================================== */
+function initMobileNavigation() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-/* --------------------------------------------------------------------------
-   3. Active Navigation Link Highlighting on Scroll
-   -------------------------------------------------------------------------- */
-function initActiveNavOnScroll() {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-link");
+function initActiveNavObserver() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.pageYOffset;
+  window.addEventListener(
+    'scroll',
+    () => {
+      const scrollY = window.scrollY;
 
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100;
-      const sectionId = current.getAttribute("id");
+      sections.forEach((section) => {
+        const top = section.offsetTop - 110;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${sectionId}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  });
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    },
+    { passive: true }
+  );
 }
 
-/* --------------------------------------------------------------------------
-   4. Scroll Reveal Animations (Intersection Observer)
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   7. INTERSECTION OBSERVER SCROLL REVEAL
+   ========================================================================== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll(".reveal");
+  const items = document.querySelectorAll('.reveal');
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.15,
-    rootMargin: "0px",
-  };
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target); // Reveal once
-      }
-    });
-  }, observerOptions);
-
-  revealElements.forEach((el) => revealObserver.observe(el));
+  items.forEach((item) => observer.observe(item));
 }
 
-/* --------------------------------------------------------------------------
-   5. Contact Form Client-Side Validation
-   -------------------------------------------------------------------------- */
-function initContactFormValidation() {
-  const form = document.getElementById("contact-form");
+/* ==========================================================================
+   8. CONTACT FORM VALIDATION & BACK TO TOP
+   ========================================================================== */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
   if (!form) return;
 
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-  const statusDiv = document.getElementById("form-status");
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const statusEl = document.getElementById('form-status');
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let isValid = true;
+  const toggleError = (id, show) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = show ? 'block' : 'none';
+  };
 
-    // Validate Name
-    if (nameInput.value.trim() === "") {
-      showError("name-error", true);
-      isValid = false;
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+      toggleError('name-error', true);
+      valid = false;
     } else {
-      showError("name-error", false);
+      toggleError('name-error', false);
     }
 
-    // Validate Email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailInput.value.trim())) {
-      showError("email-error", true);
-      isValid = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value.trim())) {
+      toggleError('email-error', true);
+      valid = false;
     } else {
-      showError("email-error", false);
+      toggleError('email-error', false);
     }
 
-    // Validate Message
     if (messageInput.value.trim().length < 10) {
-      showError("message-error", true);
-      isValid = false;
+      toggleError('message-error', true);
+      valid = false;
     } else {
-      showError("message-error", false);
+      toggleError('message-error', false);
     }
 
-    // Process Submission
-    if (isValid) {
-      statusDiv.style.color = "#10b981";
-      statusDiv.textContent =
-        "Thank you! Your message has been validated and sent successfully.";
+    if (valid) {
+      statusEl.textContent = 'Inquiry validated. Thank you for reaching out.';
       form.reset();
     } else {
-      statusDiv.style.color = "#ef4444";
-      statusDiv.textContent = "Please correct the highlighted fields above.";
+      statusEl.textContent = 'Please review the required fields above.';
     }
   });
-
-  function showError(elementId, show) {
-    const errorEl = document.getElementById(elementId);
-    if (errorEl) {
-      errorEl.style.display = show ? "block" : "none";
-    }
-  }
 }
 
-/* --------------------------------------------------------------------------
-   6. Scroll-To-Top Button
-   -------------------------------------------------------------------------- */
 function initBackToTop() {
-  const backToTopBtn = document.getElementById("back-to-top");
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
 
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
