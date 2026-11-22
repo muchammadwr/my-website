@@ -1,21 +1,21 @@
 /* ==========================================================================
-   0. MONOCHROME DESIGN SYSTEM VARIABLES
+   0. NAVY BLUE DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root,
 [data-theme="dark"] {
-  /* Strict Monochrome Palette - Dark Mode (Default) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #171717;
-  --bg-elevated: #222222;
-  --text-primary: #ffffff;
-  --text-secondary: #a3a3a3;
-  --border-color: #262626;
-  --border-strong: #404040;
-  --btn-primary-bg: #ffffff;
-  --btn-primary-text: #0a0a0a;
-  --btn-primary-hover: #e5e5e5;
-  --overlay-backdrop: rgba(0, 0, 0, 0.85);
-  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5);
+  /* Deep Navy Palette - Dark Mode (Default) */
+  --bg-primary: #060d1a; /* Deep Midnight Navy */
+  --bg-secondary: #0d192e; /* Card & Surface Navy */
+  --bg-elevated: #152642; /* Elevated Hover / Tag Surface */
+  --text-primary: #f8fafc; /* Crisp Off-White */
+  --text-secondary: #94a3b8; /* Cool Slate Gray-Blue */
+  --border-color: #1e3252; /* Subtle Navy Border */
+  --border-strong: #335282; /* Highlighted Border */
+  --btn-primary-bg: #38bdf8; /* Sky Navy Accent (High Contrast) */
+  --btn-primary-text: #060d1a; /* Deep Navy Text on Primary Button */
+  --btn-primary-hover: #7dd3fc; /* Lighter Sky Hover */
+  --overlay-backdrop: rgba(4, 9, 20, 0.88);
+  --shadow-card: 0 10px 28px rgba(2, 6, 15, 0.65);
 
   /* Typography & Layout */
   --font-sans:
@@ -30,19 +30,19 @@
 }
 
 [data-theme="light"] {
-  /* Strict Monochrome Palette - Light Mode */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f5;
-  --bg-elevated: #eaeaea;
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --border-color: #e5e5e5;
-  --border-strong: #bdbdbd;
-  --btn-primary-bg: #111111;
-  --btn-primary-text: #ffffff;
-  --btn-primary-hover: #333333;
-  --overlay-backdrop: rgba(17, 17, 17, 0.75);
-  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+  /* Light Sky Blue Palette - Light Mode */
+  --bg-primary: #f0f8ff; /* Alice Blue / Biru Langit Sangat Lembut */
+  --bg-secondary: #e0f2fe; /* Soft Sky Blue untuk Card & Surface */
+  --bg-elevated: #bae6fd; /* Sky Tint untuk Tag & Hover */
+  --text-primary: #082f49; /* Deep Sky Navy untuk Teks Utama (Kontras Tinggi) */
+  --text-secondary: #0369a1; /* Medium Sky Blue untuk Subteks */
+  --border-color: #bae6fd; /* Garis Pemisah Biru Langit Lembut */
+  --border-strong: #7dd3fc; /* Garis Tegas saat Hover */
+  --btn-primary-bg: #0284c7; /* Cerulean Sky Blue untuk Tombol Utama */
+  --btn-primary-text: #ffffff; /* Teks Putih Bersih */
+  --btn-primary-hover: #0369a1; /* Sky Blue Lebih Gelap saat Hover */
+  --overlay-backdrop: rgba(8, 47, 73, 0.75);
+  --shadow-card: 0 8px 24px rgba(2, 132, 199, 0.12);
 }
 
 /* ==========================================================================
@@ -364,31 +364,63 @@ ul {
   margin-bottom: 2rem;
 }
 
-.profile-figure {
+/* ==========================================================================
+   POLAROID PROFILE FRAME
+   ========================================================================== */
+.polaroid-frame {
   max-width: 280px;
   margin: 0 auto;
+  background-color: #fafafa; /* Warna kertas foto Polaroid */
+  padding: 14px 14px 20px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 14px 32px rgba(2, 12, 27, 0.25);
+
+  /* Posisi awal sedikit miring seperti kartu Polaroid yang diletakkan di meja */
+  transform: rotate(-4deg);
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+/* Saat di-hover, bingkai kembali tegak lurus (0 derajat) dan sedikit terangkat */
+.polaroid-frame:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(2, 12, 27, 0.35);
+}
+
+.polaroid-photo-box {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Proporsi kotak khas Polaroid */
+  overflow: hidden;
+  background-color: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .profile-img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-strong);
-  background-color: var(--bg-secondary);
-  filter: grayscale(100%) contrast(1.06);
-  box-shadow: var(--shadow-card);
-  transition:
-    filter var(--transition),
-    transform var(--transition),
-    border-color var(--transition);
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  display: block;
 }
 
-.profile-img:hover {
-  filter: grayscale(100%) contrast(1.12);
-  transform: translateY(-2px);
+.polaroid-caption {
+  margin-top: 16px;
+  text-align: center;
+  font-family: "Caveat", "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #1e293b; /* Tinta gelap di atas kertas putih */
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  user-select: none;
 }
+
 /* ==========================================================================
    5. ABOUT SECTION
    ========================================================================== */
@@ -414,22 +446,62 @@ ul {
   gap: 1rem;
 }
 
-.highlight-card {
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.education-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
-.highlight-card h3 {
+.education-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.edu-kicker {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
 }
 
-.highlight-card p {
-  font-size: 0.9rem;
+.edu-institution {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.edu-degree {
+  font-size: 0.92rem;
   color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.edu-period {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(
+    --btn-primary-bg
+  ); /* Aksen biru langit terang pada Dark Mode & Cerulean pada Light Mode */
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -467,64 +539,73 @@ ul {
 }
 
 /* ==========================================================================
-   7. INTERACTIVE PROJECT CARDS
+   7. INTERACTIVE POLAROID PROJECT CARDS (IG FEED STYLE)
    ========================================================================== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2.5rem;
+  padding: 1rem 0.5rem;
 }
 
-.project-card {
-  padding: 0;
-  overflow: hidden;
+.polaroid-card {
+  background-color: #fafafa; /* Kertas foto Polaroid putih bersih */
+  padding: 14px 14px 22px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 14px 30px rgba(2, 12, 27, 0.22);
   display: flex;
   flex-direction: column;
   cursor: pointer;
   position: relative;
+
+  /* Kemiringan acak diambil dari inline CSS variable --tilt */
+  transform: rotate(var(--tilt, -2.5deg));
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    z-index 0s;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--text-primary);
-  box-shadow: var(--shadow-card);
+/* Tegak lurus (0 derajat) dan terangkat saat di-hover atau fokus keyboard */
+.polaroid-card:hover,
+.polaroid-card:focus-visible {
+  transform: rotate(0deg) translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 44px rgba(2, 12, 27, 0.35);
+  z-index: 10;
 }
 
-.project-thumb-wrapper {
+.polaroid-card-photo {
   position: relative;
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Proporsi kotak 1:1 khas Polaroid & Feed IG */
   overflow: hidden;
-  background-color: var(--bg-elevated);
-  border-bottom: 1px solid var(--border-color);
+  background-color: #e2e8f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .project-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%);
-  transition:
-    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.45s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.project-card:hover .project-img,
-.project-card:focus-visible .project-img {
-  transform: scale(1.05);
-  filter: grayscale(100%) contrast(1.12);
+.polaroid-card:hover .project-img,
+.polaroid-card:focus-visible .project-img {
+  transform: scale(1.04);
 }
 
 .project-hover-badge {
   position: absolute;
-  bottom: 0.75rem;
-  right: 0.75rem;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-strong);
+  bottom: 0.65rem;
+  right: 0.65rem;
+  background-color: #060d1a;
+  color: #f8fafc;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
   opacity: 0;
   transform: translateY(6px);
   transition:
@@ -532,56 +613,36 @@ ul {
     transform var(--transition);
 }
 
-.project-card:hover .project-hover-badge,
-.project-card:focus-visible .project-hover-badge {
+.polaroid-card:hover .project-hover-badge,
+.polaroid-card:focus-visible .project-hover-badge {
   opacity: 1;
   transform: translateY(0);
 }
 
-.project-body {
-  padding: 1.5rem;
+.polaroid-card-footer {
+  padding-top: 14px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  gap: 0.35rem;
 }
 
-.project-category {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-secondary);
-  margin-bottom: 0.4rem;
-}
-
-.project-title {
-  font-size: 1.15rem;
+.polaroid-card-title {
+  font-family: "Caveat", "Comic Sans MS", cursive, sans-serif;
+  font-size: 1.35rem;
   font-weight: 600;
-  margin-bottom: 0.65rem;
-  line-height: 1.35;
+  color: #0f172a; /* Tinta gelap di atas kertas putih */
+  line-height: 1.2;
 }
 
-.project-summary {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 1.25rem;
-}
-
-.project-tags {
-  margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tech-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
+.polaroid-card-caption {
+  font-size: 0.85rem;
+  color: #475569; /* Teks 1 kalimat deskripsi bergaya caption IG */
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -657,12 +718,10 @@ ul {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  filter: grayscale(100%);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   margin-bottom: 1.5rem;
 }
-
 .modal-meta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
