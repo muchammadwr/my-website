@@ -6,9 +6,6 @@
 /* ==========================================================================
    1. CENTRALIZED PROJECT DATA STORE
    Add, edit, or remove projects below without touching HTML markup.
-   ========================================================================== */
-/* ==========================================================================
-   1. CENTRALIZED PROJECT DATA STORE
    Tambahkan atau ubah properti `caption` (1 kalimat ringkas untuk Polaroid).
    ========================================================================== */
 const PROJECTS_DATA = [
@@ -452,7 +449,16 @@ function initContactForm() {
     }
 
     if (valid) {
-      statusEl.textContent = "Inquiry validated. Thank you for reaching out.";
+      // Static site, no backend: open the visitor's email client with a
+      // pre-filled message so the inquiry actually reaches the owner.
+      const recipient = "wildan.analytics@example.com";
+      const subject = `Portfolio Inquiry from ${nameInput.value.trim()}`;
+      const body = `${messageInput.value.trim()}\n\n— ${nameInput.value.trim()} (${emailInput.value.trim()})`;
+      const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      statusEl.textContent =
+        "Opening your email client to send the inquiry...";
+      window.location.href = mailtoUrl;
       form.reset();
     } else {
       statusEl.textContent = "Please review the required fields above.";

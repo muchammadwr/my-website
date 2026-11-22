@@ -113,6 +113,26 @@ ul {
 .section {
   padding: 5.5rem 0;
   border-bottom: 1px solid var(--border-color);
+  scroll-margin-top: var(--header-height);
+}
+
+/* Skip-to-content link: hidden until keyboard-focused */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  z-index: 2000;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 .section-header {
@@ -314,13 +334,66 @@ ul {
 }
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO SECTION (STATIC AURORA BACKGROUND)
    ========================================================================== */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-top: calc(var(--header-height) + 4rem);
+  background-color: var(--bg-primary);
+}
+
+/* Static aurora curtains: a few soft, fixed radial gradients standing in
+   for the previous canvas animation. No JS, no motion. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      ellipse 60% 50% at 20% 15%,
+      rgba(20, 241, 185, 0.22),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 55% 5%,
+      rgba(56, 189, 248, 0.22),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 85% 20%,
+      rgba(168, 85, 247, 0.18),
+      transparent 70%
+    ),
+    /* Faint static star field */
+      radial-gradient(1px 1px at 10% 20%, rgba(248, 250, 252, 0.7), transparent),
+    radial-gradient(1px 1px at 25% 10%, rgba(248, 250, 252, 0.5), transparent),
+    radial-gradient(1px 1px at 40% 30%, rgba(248, 250, 252, 0.6), transparent),
+    radial-gradient(1px 1px at 58% 8%, rgba(248, 250, 252, 0.5), transparent),
+    radial-gradient(1px 1px at 72% 22%, rgba(248, 250, 252, 0.7), transparent),
+    radial-gradient(1px 1px at 88% 12%, rgba(248, 250, 252, 0.5), transparent),
+    radial-gradient(1px 1px at 95% 35%, rgba(248, 250, 252, 0.6), transparent);
+  filter: blur(10px);
+}
+
+/* Vignette halus di bagian bawah hero agar transisi ke section About mulus */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -361,6 +434,37 @@ ul {
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-bottom: 2rem;
+}
+
+/* Penyesuaian cahaya aurora saat Light Mode (Biru Langit) */
+[data-theme="light"] .hero::before {
+  opacity: 0.6;
+  background-image:
+    radial-gradient(
+      ellipse 60% 50% at 20% 15%,
+      rgba(16, 185, 129, 0.25),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 55% 5%,
+      rgba(14, 165, 233, 0.25),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 85% 20%,
+      rgba(139, 92, 246, 0.18),
+      transparent 70%
+    );
+}
+
+[data-theme="light"] .hero::after {
+  opacity: 0.5;
+  background: radial-gradient(
+    circle at 60% 60%,
+    rgba(2, 132, 199, 0.35),
+    rgba(125, 211, 252, 0.4) 50%,
+    transparent 75%
+  );
 }
 
 /* ==========================================================================
@@ -437,12 +541,6 @@ ul {
 
 .about-cv {
   margin-top: 1.75rem;
-}
-
-.about-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .about-highlights {
@@ -984,6 +1082,19 @@ ul {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+::selection {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
 }
 
 /* ==========================================================================
