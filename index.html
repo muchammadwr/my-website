@@ -1,129 +1,110 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muchammad Wildan Alkautsar | Data Scientist</title>
+    <title>
+      Muchammad Wildan Alkautsar — Data Scientist &amp; Data Analyst
+    </title>
     <meta
       name="description"
-      content="Portfolio of Muchammad Wildan Alkautsar — Data Analyst & Data Scientist specializing in Business Intelligence, Machine Learning, and Statistical Modeling."
+      content="Portfolio of Muchammad Wildan Alkautsar, Data Scientist &amp; Data Analyst specializing in statistical analysis, business intelligence, machine learning, and predictive modeling."
     />
-    <meta name="author" content="Muchammad Wildan Alkautsar" />
 
     <!-- Open Graph Metadata -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://muchammadwr.github.io/" />
     <meta
       property="og:title"
-      content="Muchammad Wildan Alkautsar | Data Analyst & Data Scientist"
+      content="Muchammad Wildan Alkautsar — Data Scientist | Data Analyst"
     />
     <meta
       property="og:description"
-      content="Transforming raw operational and financial data into structured business strategy using Python, SQL, Power BI, and Scikit-learn."
+      content="Turning complex data into meaningful insights through statistical analysis, machine learning, and business intelligence."
     />
-    <meta
-      property="og:image"
-      content="https://muchammadwr.github.io/assets/images/wildan.png"
-    />
+    <meta property="og:type" content="website" />
 
-    <!-- Twitter Card Metadata -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Muchammad Wildan Alkautsar | Data Analyst & Data Scientist"
-    />
-    <meta
-      name="twitter:description"
-      content="Transforming raw operational and financial data into structured business strategy using Python, SQL, Power BI, and Scikit-learn."
-    />
-    <meta
-      name="twitter:image"
-      content="https://muchammadwr.github.io/assets/images/wildan.png"
-    />
-
-    <link rel="canonical" href="https://muchammadwr.github.io/" />
-    <meta name="theme-color" content="#060d1a" />
-    <link rel="icon" href="/assets/icons/wh.svg" />
-
-    <!-- Google Fonts (Poppins + Caveat tanpa duplikasi) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="styles/style.css" />
-    <noscript>
-      <style>
-        .reveal {
-          opacity: 1 !important;
-          transform: none !important;
+    <!-- Prevent Theme Flash on Load -->
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("mw-portfolio-theme");
+        if (savedTheme === "dark" || savedTheme === "light") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
         }
-      </style>
-    </noscript>
-
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Muchammad Wildan Alkautsar",
-        "jobTitle": "Data Analyst & Data Scientist",
-        "url": "https://muchammadwr.github.io/",
-        "sameAs": [
-          "https://linkedin.com/in/muchammadwr",
-          "https://github.com/muchammadwr"
-        ]
-      }
+      })();
     </script>
+
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Header & Navigation -->
-    <header class="header" id="header">
+    <!-- ==================== A. NAVIGATION ==================== -->
+    <header class="site-header" id="top">
       <div class="container nav-container">
-        <a href="#home" class="logo" aria-label="Home">
-          <span>WILDAN</span>.HAYA
+        <a href="#home" class="brand-logo" aria-label="Muchammad Wildan Home">
+          <span class="logo-box">WH</span>
+          <span class="logo-meta mono">WILDAN HAYA</span>
         </a>
 
-        <nav class="nav-menu" id="nav-menu" aria-label="Primary Navigation">
+        <nav
+          class="primary-nav"
+          id="primary-nav"
+          aria-label="Primary Navigation"
+        >
           <ul class="nav-list">
-            <li class="nav-item">
-              <a href="#home" class="nav-link active">Home</a>
+            <li>
+              <a href="#home" class="nav-link active"
+                ><span class="nav-num mono">01.</span>Home</a
+              >
             </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
+            <li>
+              <a href="#about" class="nav-link"
+                ><span class="nav-num mono">02.</span>About</a
+              >
             </li>
-            <li class="nav-item">
-              <a href="#skills" class="nav-link">Skills</a>
+            <li>
+              <a href="#skills" class="nav-link"
+                ><span class="nav-num mono">03.</span>Skills</a
+              >
             </li>
-            <li class="nav-item">
-              <a href="#projects" class="nav-link">Projects</a>
+            <li>
+              <a href="#experience" class="nav-link"
+                ><span class="nav-num mono">04.</span>Experience</a
+              >
             </li>
-            <li class="nav-item">
-              <a href="#experience" class="nav-link">Experience</a>
+            <li>
+              <a href="#projects" class="nav-link"
+                ><span class="nav-num mono">05.</span>Projects</a
+              >
             </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact</a>
+            <li>
+              <a href="#contact" class="nav-link"
+                ><span class="nav-num mono">06.</span>Contact</a
+              >
             </li>
           </ul>
         </nav>
 
         <div class="nav-actions">
-          <!-- Theme Toggle Button -->
           <button
+            type="button"
+            class="theme-toggle"
             id="theme-toggle"
-            class="icon-btn"
-            aria-label="Switch color theme"
-            title="Toggle Dark/Light Theme"
+            aria-label="Switch to dark mode"
+            title="Toggle color theme"
           >
+            <!-- Sun Icon (shown in Dark Mode to switch to Light) -->
             <svg
-              class="sun-icon"
-              viewBox="0 0 24 24"
+              class="icon-sun"
               width="18"
               height="18"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -141,11 +122,12 @@
               <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
+            <!-- Moon Icon (shown in Light Mode to switch to Dark) -->
             <svg
-              class="moon-icon"
-              viewBox="0 0 24 24"
+              class="icon-moon"
               width="18"
               height="18"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -157,110 +139,101 @@
             </svg>
           </button>
 
-          <!-- Mobile Menu Toggle -->
+          <a href="#contact" class="btn btn-outline btn-sm nav-cta">Contact</a>
+
           <button
+            type="button"
+            class="menu-toggle"
             id="menu-toggle"
-            class="icon-btn hamburger"
-            aria-label="Toggle navigation menu"
             aria-expanded="false"
-            aria-controls="nav-menu"
+            aria-controls="primary-nav"
+            aria-label="Open navigation menu"
           >
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
           </button>
         </div>
       </div>
     </header>
 
     <main id="main-content">
-      <!-- Hero Section -->
-      <section class="section hero" id="home">
-        <div class="container hero-container">
+      <!-- ==================== B. HERO SECTION ==================== -->
+      <section class="hero section" id="home">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="container hero-grid">
           <div class="hero-content reveal">
-            <p class="hero-kicker">PORTFOLIO // 2026</p>
-            <h1 class="hero-title">Muchammad Wildan Alkautsar</h1>
-            <h2 class="hero-subtitle">Data Scientist</h2>
-            <p class="hero-description">
-              Transforming raw operational, financial, and behavioral datasets
-              into structured decision intelligence through statistical
-              modeling, SQL pipelines, and executive dashboards.
+            <div class="hero-eyebrow">
+              <span class="eyebrow-line"></span>
+              <span class="mono">HELLO, I'M MUCHAMMAD WILDAN</span>
+            </div>
+
+            <h1 class="hero-name">Muchammad Wildan Alkautsar</h1>
+            <p class="hero-role mono">
+              Data Scientist <span class="divider">|</span> Data Analyst
             </p>
 
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary"
-                >Explore Case Studies</a
+            <h2 class="hero-headline">
+              Turning Complex Data Into
+              <span class="text-gradient">Meaningful Insights.</span>
+            </h2>
+
+            <p class="hero-description">
+              I transform raw and complex datasets into actionable insights
+              through statistical analysis, machine learning, predictive
+              modeling, and data visualization.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <span>Explore My Projects</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a
+                href="assets/cv/wildan-cv.pdf"
+                download
+                class="btn btn-secondary"
               >
-              <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download CV</span>
+              </a>
             </div>
 
-            <div class="social-links">
-              <a
-                href="https://linkedin.com/in/muchammadwr"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                >LinkedIn &nearr;</a
-              >
-              <a
-                href="https://github.com/muchammadwr"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                >GitHub &nearr;</a
-              >
-            </div>
-          </div>
-
-          <div class="hero-image-wrapper reveal">
-            <figure class="profile-figure polaroid-frame">
-              <div class="polaroid-photo-box">
-                <img
-                  src="assets/images/wildan.png"
-                  alt="Portrait of Muchammad Wildan Alkautsar"
-                  class="profile-img"
-                  width="320"
-                  height="320"
-                  loading="eager"
-                />
-              </div>
-              <figcaption class="polaroid-caption">
-                Wildan - Data Scientist
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section class="section about" id="about">
-        <div class="container">
-          <h2 class="section-title reveal">About</h2>
-          <div class="about-grid">
-            <div class="about-text reveal">
-              <p>
-                I approach data analysis through structured problem-solving
-                frameworks—applying CRISP-DM, MECE decomposition, and
-                hypothesis-driven testing to ensure every query and model
-                directly answers a measurable business question.
-              </p>
-              <p>
-                Combining a Management background from Universitas Terbuka with
-                Informatics coursework at Sibermu and specialized training in
-                the Asah Data Science program (Dicoding &amp; GoTo), I bridge
-                commercial intuition with reproducible technical execution
-                across Python, SQL, and BI ecosystems.
-              </p>
-
-              <div class="about-cv">
+            <div class="hero-social-bar">
+              <div class="social-links" aria-label="Social and Contact Links">
                 <a
-                  href="assets/documents/cv.pdf"
-                  download
-                  class="btn btn-primary"
+                  href="https://github.com/wildanalkautsar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-link"
+                  aria-label="GitHub Profile"
                 >
                   <svg
-                    width="16"
-                    height="16"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -269,327 +242,1232 @@
                     stroke-linejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
                   </svg>
-                  Download Resume (PDF)
+                  <span class="mono">GitHub</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/muchammad-wildan-alkautsar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-link"
+                  aria-label="LinkedIn Profile"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span class="mono">LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:wildan.alkautsar@example.com"
+                  class="social-link"
+                  aria-label="Send Email"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span class="mono">Email</span>
                 </a>
               </div>
+              <span class="hero-meta-tag mono"
+                >STATUS // OPEN_TO_OPPORTUNITIES</span
+              >
             </div>
+          </div>
 
-            <aside
-              class="about-highlights reveal"
-              aria-label="Education Summary"
-            >
-              <div class="highlight-card education-card">
-                <span class="edu-kicker">PENDIDIKAN</span>
-                <h3 class="edu-institution">
-                  Universitas Siber Muhammadiyah (Sibermu)
-                </h3>
-                <p class="edu-degree">S1 Informatika (On-going)</p>
-                <p class="edu-period">
-                  <time datetime="2023">2023</time> – Sekarang
-                </p>
+          <div class="hero-visual reveal">
+            <div class="portrait-frame">
+              <div class="portrait-backdrop" aria-hidden="true"></div>
+              <div class="portrait-card">
+                <img
+                  src="assets/images/wildan.png"
+                  alt="Portrait of Muchammad Wildan Alkautsar, Data Scientist and Data Analyst"
+                  class="portrait-img"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                />
+                <!-- Clean SVG Placeholder if profile.jpg is not yet added -->
+                <div
+                  class="portrait-placeholder"
+                  style="display: none"
+                  role="img"
+                  aria-label="Muchammad Wildan Alkautsar Profile Placeholder"
+                >
+                  <svg
+                    width="88"
+                    height="88"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <span class="mono">assets/images/profile.jpg</span>
+                </div>
+                <div class="portrait-caption">
+                  <span class="status-dot"></span>
+                  <span class="mono">DATA SCIENCE &amp; ANALYTICS</span>
+                </div>
               </div>
-              <div class="highlight-card education-card">
-                <span class="edu-kicker">PENDIDIKAN</span>
-                <h3 class="edu-institution">Universitas Terbuka</h3>
-                <p class="edu-degree">S1 Manajemen (IPK 3.22/4.00)</p>
-                <p class="edu-period">
-                  <time datetime="2022">2022</time> –
-                  <time datetime="2026">2026</time>
-                </p>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#about"
+          class="scroll-indicator"
+          aria-label="Scroll down to About section"
+        >
+          <span class="mono">SCROLL</span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            aria-hidden="true"
+          >
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+      </section>
+
+      <!-- ==================== C. ABOUT ME ==================== -->
+      <section class="section about-section" id="about">
+        <div class="container">
+          <header class="section-header reveal">
+            <span class="section-tag mono">01 // PROFILE</span>
+            <h2 class="section-title">About Me.</h2>
+            <p class="section-subtitle">
+              Understanding Data. Solving Problems. Creating Impact.
+            </p>
+          </header>
+
+          <div class="about-grid">
+            <!-- Left Column: Portrait + Profile Metadata -->
+            <aside class="about-sidebar reveal">
+              <div class="about-card">
+                <div class="about-thumb-wrap">
+                  <img
+                    src="assets/images/profile.jpg"
+                    alt="Muchammad Wildan Alkautsar"
+                    class="about-thumb"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div class="about-thumb-fallback" style="display: none">
+                    <span class="mono">MW // PROFILE</span>
+                  </div>
+                </div>
+
+                <div class="meta-list">
+                  <div class="meta-item">
+                    <span class="meta-label mono">BASE LOCATION</span>
+                    <span class="meta-value">Indonesia (Remote / On-site)</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label mono">ACADEMIC FOCUS</span>
+                    <span class="meta-value">Management &amp; Informatics</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label mono">CORE INTERESTS</span>
+                    <span class="meta-value"
+                      >Predictive Modeling, BI Dashboards, Financial &amp;
+                      Customer Analytics</span
+                    >
+                  </div>
+                </div>
               </div>
             </aside>
-          </div>
-        </div>
-      </section>
 
-      <!-- Technical Skills Section -->
-      <section class="section skills" id="skills">
-        <div class="container">
-          <h2 class="section-title reveal">Technical Stack</h2>
-          <div class="skills-grid">
-            <div class="skills-category card reveal">
-              <h3 class="category-title">Programming</h3>
-              <ul class="skills-list">
-                <li>Python (Automation &amp; Scripting)</li>
-                <li>SQL (PostgreSQL, MySQL, BigQuery)</li>
-                <li>JavaScript (ES6+)</li>
-              </ul>
-            </div>
+            <!-- Right Column: Narrative + Editable Statistics -->
+            <div class="about-content reveal">
+              <div class="editorial-prose">
+                <p>
+                  With an interdisciplinary foundation bridging
+                  <strong>Management and Informatics</strong>, I approach data
+                  problems from both a technical and strategic business
+                  perspective. Rather than treating data analysis as isolated
+                  code execution, I focus on framing the right business
+                  questions first.
+                </p>
+                <p>
+                  My work spans end-to-end
+                  <strong
+                    >exploratory data analysis, statistical hypothesis testing,
+                    business intelligence reporting, and machine
+                    learning</strong
+                  >. Whether diagnosing customer complaint drivers, evaluating
+                  financial profitability scenarios, or segmenting customer
+                  behavior with unsupervised clustering, I build transparent
+                  analytical workflows that support confident, data-driven
+                  decision-making.
+                </p>
+              </div>
 
-            <div class="skills-category card reveal">
-              <h3 class="category-title">Data Analysis</h3>
-              <ul class="skills-list">
-                <li>Pandas &amp; NumPy</li>
-                <li>SPSS Quantitative Analysis</li>
-                <li>Excel (Power Query, Pivot)</li>
-                <li>A/B Testing &amp; RFM Modeling</li>
-              </ul>
-            </div>
-
-            <div class="skills-category card reveal">
-              <h3 class="category-title">Business Intelligence</h3>
-              <ul class="skills-list">
-                <li>Power BI (DAX)</li>
-                <li>Google Looker Studio</li>
-                <li>Matplotlib &amp; Seaborn</li>
-                <li>Plotly Interactive Charts</li>
-              </ul>
-            </div>
-
-            <div class="skills-category card reveal">
-              <h3 class="category-title">Machine Learning</h3>
-              <ul class="skills-list">
-                <li>Scikit-learn</li>
-                <li>Classification &amp; Clustering</li>
-                <li>Predictive Modeling</li>
-                <li>Feature Engineering</li>
-              </ul>
-            </div>
-
-            <div class="skills-category card reveal">
-              <h3 class="category-title">Workflow &amp; Tools</h3>
-              <ul class="skills-list">
-                <li>Git &amp; GitHub</li>
-                <li>Streamlit Deployment</li>
-                <li>Google Sheets</li>
-                <li>Jupyter &amp; Google Colab</li>
-              </ul>
+              <!-- Editable Statistics Grid (Placeholder counts clearly marked for easy updates) -->
+              <div class="stats-grid" aria-label="Portfolio Metrics">
+                <div class="stat-card">
+                  <span class="stat-value">05+</span>
+                  <span class="stat-label mono">Analytics Projects</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value">03+</span>
+                  <span class="stat-label mono"
+                    >ML &amp; Forecasting Models</span
+                  >
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value">15+</span>
+                  <span class="stat-label mono">Technical Tools</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-value">04+</span>
+                  <span class="stat-label mono"
+                    >Certifications &amp; Bootcamps</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Featured Projects Section (Populated Dynamically via JS) -->
-      <section class="section projects" id="projects">
+      <!-- ==================== D. TECHNICAL SKILLS ==================== -->
+      <section class="section skills-section" id="skills">
         <div class="container">
-          <div class="section-header reveal">
-            <h2 class="section-title">Selected Projects</h2>
+          <header class="section-header reveal">
+            <span class="section-tag mono">02 // TOOLKIT</span>
+            <h2 class="section-title">My Skills.</h2>
             <p class="section-subtitle">
-              Click any project card to inspect the business problem,
-              methodology, and key analytical findings.
+              Tools and technologies I use to explore data and develop
+              analytical solutions.
             </p>
+          </header>
+
+          <div class="skills-grid">
+            <!-- Category 1 -->
+            <article class="skill-category-card reveal">
+              <div class="skill-cat-header">
+                <span class="skill-cat-num mono">01</span>
+                <h3 class="skill-cat-title">
+                  Programming &amp; Data Processing
+                </h3>
+              </div>
+              <ul class="skill-items">
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <span>Python</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  </svg>
+                  <span>SQL</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
+                  <span>Pandas</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                  <span>NumPy</span>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Category 2 -->
+            <article class="skill-category-card reveal">
+              <div class="skill-cat-header">
+                <span class="skill-cat-num mono">02</span>
+                <h3 class="skill-cat-title">
+                  Data Visualization &amp; Business Intelligence
+                </h3>
+              </div>
+              <ul class="skill-items">
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                  <span>Power BI</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10H12z"></path>
+                  </svg>
+                  <span>Looker Studio</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="8" y1="13" x2="16" y2="13"></line>
+                    <line x1="8" y1="17" x2="16" y2="17"></line>
+                  </svg>
+                  <span>Excel</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points="22 12 18 12 15 21 9 3 6 12 2 12"
+                    ></polyline>
+                  </svg>
+                  <span>Matplotlib</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 3v18h18"></path>
+                    <circle cx="9" cy="13" r="2"></circle>
+                    <circle cx="15" cy="9" r="2"></circle>
+                    <circle cx="19" cy="15" r="2"></circle>
+                  </svg>
+                  <span>Seaborn</span>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Category 3 -->
+            <article class="skill-category-card reveal">
+              <div class="skill-cat-header">
+                <span class="skill-cat-num mono">03</span>
+                <h3 class="skill-cat-title">
+                  Machine Learning &amp; Statistics
+                </h3>
+              </div>
+              <ul class="skill-items">
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                    ></path>
+                  </svg>
+                  <span>Scikit-learn</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <line x1="4" y1="20" x2="20" y2="4"></line>
+                    <circle cx="7" cy="14" r="1.5"></circle>
+                    <circle cx="13" cy="13" r="1.5"></circle>
+                    <circle cx="16" cy="6" r="1.5"></circle>
+                  </svg>
+                  <span>Regression</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                  </svg>
+                  <span>Classification</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="7" cy="7" r="3"></circle>
+                    <circle cx="17" cy="9" r="3"></circle>
+                    <circle cx="12" cy="17" r="3"></circle>
+                  </svg>
+                  <span>Clustering</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                    <polyline points="17 6 23 6 23 12"></polyline>
+                  </svg>
+                  <span>Forecasting</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>Exploratory Data Analysis</span>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Category 4 -->
+            <article class="skill-category-card reveal">
+              <div class="skill-cat-header">
+                <span class="skill-cat-num mono">04</span>
+                <h3 class="skill-cat-title">Development &amp; Tools</h3>
+              </div>
+              <ul class="skill-items">
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <circle cx="18" cy="18" r="3"></circle>
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <path d="M6 21V9a9 9 0 0 0 9 9"></path>
+                  </svg>
+                  <span>Git</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                  <span>GitHub</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                  <span>Streamlit</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"
+                    ></path>
+                  </svg>
+                  <span>Google Colab</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                  </svg>
+                  <span>Jupyter Notebook</span>
+                </li>
+                <li class="skill-item">
+                  <svg
+                    class="skill-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  </svg>
+                  <span>DuckDB</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== E. EXPERIENCE & EDUCATION ==================== -->
+      <section class="section timeline-section" id="experience">
+        <div class="container">
+          <header class="section-header reveal">
+            <span class="section-tag mono">03 // BACKGROUND</span>
+            <h2 class="section-title">Experience &amp; Education.</h2>
+            <p class="section-subtitle">
+              Academic foundation, specialized data training, and analytical
+              experience.
+            </p>
+          </header>
+
+          <!-- Editable Timeline Entries (Customize dates, organizations, and specifics) -->
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-top">
+                  <span class="timeline-badge mono"
+                    >EXPERIENCE / PROJECT WORK</span
+                  >
+                  <span class="timeline-date mono">[2025 – Present]</span>
+                </div>
+                <h3 class="timeline-title">
+                  Data Analyst &amp; Data Science Practitioner (Portfolio &amp;
+                  Case Studies)
+                </h3>
+                <p class="timeline-org">
+                  Independent &amp; Applied Analytics Projects
+                </p>
+                <p class="timeline-desc">
+                  Designing and executing end-to-end data analytics, financial
+                  modeling, and machine learning solutions across retail,
+                  financial services, and urban mobility datasets.
+                </p>
+                <ul class="timeline-achievements">
+                  <li>
+                    Built interactive BI dashboards and automated SQL/DuckDB
+                    analytical pipelines for profitability and sales performance
+                    reviews.
+                  </li>
+                  <li>
+                    Developed customer segmentation models and interactive
+                    Streamlit exploratory data applications.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-top">
+                  <span class="timeline-badge mono"
+                    >BOOTCAMP &amp; TRAINING</span
+                  >
+                  <span class="timeline-date mono">[2024 – 2025]</span>
+                </div>
+                <h3 class="timeline-title">
+                  Data Science &amp; Data Analytics Intensive Program
+                </h3>
+                <p class="timeline-org">
+                  [Institution / Bootcamp Name Placeholder]
+                </p>
+                <p class="timeline-desc">
+                  Completed hands-on training in Python programming, SQL
+                  querying, statistical inference, data wrangling,
+                  supervised/unsupervised machine learning, and dashboard
+                  storytelling.
+                </p>
+                <ul class="timeline-achievements">
+                  <li>
+                    Delivered capstone analytical case studies translating raw
+                    operational datasets into executive recommendations.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-marker" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <div class="timeline-top">
+                  <span class="timeline-badge mono">EDUCATION</span>
+                  <span class="timeline-date mono"
+                    >[Year – Year Placeholder]</span
+                  >
+                </div>
+                <h3 class="timeline-title">
+                  Bachelor's Degree in Management / Informatics
+                </h3>
+                <p class="timeline-org">[University Name Placeholder]</p>
+                <p class="timeline-desc">
+                  Combined business management principles, financial analysis,
+                  and information systems with quantitative research methods and
+                  database management.
+                </p>
+                <ul class="timeline-achievements">
+                  <li>
+                    Focused coursework in business statistics, quantitative
+                    decision-making, database systems, and organizational
+                    strategy.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== F. FEATURED PROJECTS ==================== -->
+      <section class="section projects-section" id="projects">
+        <div class="container">
+          <header class="section-header reveal">
+            <span class="section-tag mono">04 // PORTFOLIO</span>
+            <h2 class="section-title">Selected Works.</h2>
+            <p class="section-subtitle">
+              Data-driven projects exploring business problems, analytical
+              methods, and predictive solutions.
+            </p>
+          </header>
+
+          <!-- Category Filters -->
+          <div
+            class="filter-bar reveal"
+            role="tablist"
+            aria-label="Filter projects by category"
+          >
+            <button
+              type="button"
+              class="filter-btn active"
+              data-filter="All"
+              role="tab"
+              aria-selected="true"
+            >
+              All
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="Data Analytics"
+              role="tab"
+              aria-selected="false"
+            >
+              Data Analytics
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="Business Intelligence"
+              role="tab"
+              aria-selected="false"
+            >
+              Business Intelligence
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="Machine Learning"
+              role="tab"
+              aria-selected="false"
+            >
+              Machine Learning
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="Financial Analytics"
+              role="tab"
+              aria-selected="false"
+            >
+              Financial Analytics
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="Forecasting"
+              role="tab"
+              aria-selected="false"
+            >
+              Forecasting
+            </button>
           </div>
 
-          <!-- Dynamic Grid Container -->
+          <!-- Asymmetric Alternating Project Cards (Populated via js/projects.js) -->
           <div
-            class="projects-grid"
-            id="projects-grid"
+            class="projects-list"
+            id="projects-container"
             aria-live="polite"
           ></div>
         </div>
       </section>
 
-      <!-- Experience & Education Section -->
-      <section class="section experience" id="experience">
+      <!-- ==================== G. DATA SCIENCE WORKFLOW ==================== -->
+      <section class="section workflow-section" id="workflow">
         <div class="container">
-          <h2 class="section-title reveal">Experience &amp; Education</h2>
-          <div class="timeline">
-            <div class="timeline-item reveal">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content card">
-                <span class="timeline-date"
-                  ><time datetime="2026-08">Aug 2026</time> –
-                  <time datetime="2027-01">Jan 2027</time></span
-                >
-                <h3 class="timeline-title">Data Science Specialist</h3>
-                <h4 class="timeline-org">Asah Program (Dicoding &amp; GoTo)</h4>
-                <p>
-                  Executed end-to-end Python analytics, data validation across
-                  10,000+ operational records, and machine learning workflows
-                  for MSME supply chain optimization.
-                </p>
-              </div>
-            </div>
+          <header class="section-header reveal">
+            <span class="section-tag mono">05 // METHODOLOGY</span>
+            <h2 class="section-title">How I Approach Data Science.</h2>
+            <p class="section-subtitle">
+              A structured, reproducible lifecycle connecting raw data to
+              measurable business decisions.
+            </p>
+          </header>
 
-            <div class="timeline-item reveal">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content card">
-                <span class="timeline-date"
-                  ><time datetime="2025-03">Mar 2025</time> –
-                  <time datetime="2026-01">Jan 2026</time></span
-                >
-                <h3 class="timeline-title">Researcher Analyst</h3>
-                <h4 class="timeline-org">
-                  Universitas Terbuka Student Research Program
-                </h4>
-                <p>
-                  Conducted quantitative survey modeling across 150 respondents
-                  using SPSS, evaluating statistical correlations between
-                  work-life balance and academic achievement.
-                </p>
+          <div class="workflow-grid">
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">01</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
               </div>
-            </div>
+              <h3 class="workflow-title">Business Understanding</h3>
+              <p class="workflow-desc">
+                Define core business objectives, stakeholder KPIs, constraints,
+                and decision criteria before touching code or models.
+              </p>
+            </article>
 
-            <div class="timeline-item reveal">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content card">
-                <span class="timeline-date"
-                  ><time datetime="2024-08">Aug 2024</time> –
-                  <time datetime="2025-01">Jan 2025</time></span
-                >
-                <h3 class="timeline-title">Machine Learning Specialist</h3>
-                <h4 class="timeline-org">
-                  Bangkit Academy (Google, GoTo, Traveloka)
-                </h4>
-                <p>
-                  Directed a 5-member cross-functional engineering team across 3
-                  workstreams, resolving technical blockers and delivering all 4
-                  production milestones on schedule.
-                </p>
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">02</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
               </div>
-            </div>
+              <h3 class="workflow-title">Data Understanding</h3>
+              <p class="workflow-desc">
+                Audit data sources, schema structure, granularity, and coverage
+                to assess reliability and identify potential bias.
+              </p>
+            </article>
+
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">03</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
+              </div>
+              <h3 class="workflow-title">Data Preparation</h3>
+              <p class="workflow-desc">
+                Clean anomalies, handle missing values, standardize types, and
+                engineer domain-relevant features for robust analysis.
+              </p>
+            </article>
+
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">04</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
+              </div>
+              <h3 class="workflow-title">Exploratory Data Analysis</h3>
+              <p class="workflow-desc">
+                Uncover distributions, correlations, seasonality, and segment
+                patterns through statistical tests and visual diagnostics.
+              </p>
+            </article>
+
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">05</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
+              </div>
+              <h3 class="workflow-title">Modeling &amp; Evaluation</h3>
+              <p class="workflow-desc">
+                Train interpretable statistical or machine learning models and
+                validate performance against business-aligned metrics.
+              </p>
+            </article>
+
+            <article class="workflow-card reveal">
+              <div class="workflow-head">
+                <span class="workflow-step mono">06</span>
+                <span class="workflow-dot" aria-hidden="true"></span>
+              </div>
+              <h3 class="workflow-title">Deployment &amp; Communication</h3>
+              <p class="workflow-desc">
+                Deliver interactive dashboards, Streamlit apps, and clear
+                executive recommendations that drive concrete action.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section class="section contact" id="contact">
+      <!-- ==================== H. CERTIFICATIONS & ACHIEVEMENTS ==================== -->
+      <section class="section certs-section" id="certifications">
         <div class="container">
-          <h2 class="section-title reveal">Contact</h2>
-          <div class="contact-grid">
-            <div class="contact-info reveal">
-              <h3>Start a Conversation</h3>
-              <p>
-                Available for remote and full-time opportunities in Data
-                Analytics, Business Intelligence, and Marketing Analytics.
+          <header class="section-header reveal">
+            <span class="section-tag mono">06 // CREDENTIALS</span>
+            <h2 class="section-title">Learning &amp; Development.</h2>
+            <p class="section-subtitle">
+              Verified technical training, certifications, and continuous
+              analytical development.
+            </p>
+          </header>
+
+          <!-- Editable Certification Cards (Replace placeholders with your exact credential details) -->
+          <div class="certs-grid">
+            <article class="cert-card reveal">
+              <div class="cert-thumb" aria-hidden="true">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline
+                    points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                  ></polyline>
+                </svg>
+                <span class="mono">CERTIFICATION</span>
+              </div>
+              <div class="cert-body">
+                <span class="cert-date mono">[Month Year Placeholder]</span>
+                <h3 class="cert-title">
+                  [Data Analytics / Data Science Certification Title]
+                </h3>
+                <p class="cert-org">
+                  [Issuing Organization — e.g., Dicoding / Coursera / Google]
+                </p>
+                <a
+                  href="#"
+                  class="cert-link mono"
+                  aria-label="View credential details"
+                >
+                  <span>Verify Credential</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="cert-card reveal">
+              <div class="cert-thumb" aria-hidden="true">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span class="mono">TECHNICAL TRAINING</span>
+              </div>
+              <div class="cert-body">
+                <span class="cert-date mono">[Month Year Placeholder]</span>
+                <h3 class="cert-title">
+                  [Python &amp; Machine Learning Specialization]
+                </h3>
+                <p class="cert-org">[Issuing Organization Placeholder]</p>
+                <a
+                  href="#"
+                  class="cert-link mono"
+                  aria-label="View credential details"
+                >
+                  <span>Verify Credential</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="cert-card reveal">
+              <div class="cert-thumb" aria-hidden="true">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <span class="mono">BI &amp; SQL</span>
+              </div>
+              <div class="cert-body">
+                <span class="cert-date mono">[Month Year Placeholder]</span>
+                <h3 class="cert-title">
+                  [SQL &amp; Business Intelligence Visualization]
+                </h3>
+                <p class="cert-org">[Issuing Organization Placeholder]</p>
+                <a
+                  href="#"
+                  class="cert-link mono"
+                  aria-label="View credential details"
+                >
+                  <span>Verify Credential</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== I. CONTACT SECTION ==================== -->
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="contact-banner reveal">
+            <div class="contact-banner-content">
+              <span class="contact-tag mono">07 // COLLABORATE</span>
+              <h2 class="contact-headline">Let's Turn Data Into Impact.</h2>
+              <p class="contact-description">
+                Interested in data science, analytics, machine learning, or
+                meaningful business challenges? Let's connect and explore
+                opportunities to create value through data.
               </p>
 
-              <address class="contact-details">
-                <div class="contact-item">
-                  <span class="contact-label">EMAIL</span>
-                  <a href="mailto:wildan.analytics@example.com"
-                    >wildan.analytics@example.com</a
+              <div class="contact-actions">
+                <a
+                  href="mailto:wildan.alkautsar@example.com"
+                  class="btn btn-white"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
                   >
-                </div>
-                <div class="contact-item">
-                  <span class="contact-label">LINKEDIN</span>
-                  <a
-                    href="https://linkedin.com/in/muchammadwr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >linkedin.com/in/muchammadwr</a
-                  >
-                </div>
-                <div class="contact-item">
-                  <span class="contact-label">GITHUB</span>
-                  <a
-                    href="https://github.com/muchammadwr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >github.com/muchammadwr</a
-                  >
-                </div>
-              </address>
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>Email Me</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/muchammad-wildan-alkautsar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-banner-outline"
+                >
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/wildanalkautsar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-banner-outline"
+                >
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="assets/cv/wildan-cv.pdf"
+                  download
+                  class="btn btn-banner-outline"
+                >
+                  <span>Download CV</span>
+                </a>
+              </div>
             </div>
-
-            <form class="contact-form card reveal" id="contact-form" novalidate>
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-control"
-                  placeholder="Your full name"
-                  required
-                />
-                <span class="error-msg" id="name-error"
-                  >Please enter your name.</span
-                >
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-control"
-                  placeholder="name@company.com"
-                  required
-                />
-                <span class="error-msg" id="email-error"
-                  >Please enter a valid email address.</span
-                >
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  class="form-control"
-                  placeholder="Describe your role, dataset, or analytical inquiry..."
-                  required
-                ></textarea>
-                <span class="error-msg" id="message-error"
-                  >Please enter at least 10 characters.</span
-                >
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-full">
-                Send Inquiry
-              </button>
-              <div class="form-status" id="form-status" role="alert"></div>
-            </form>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-container">
-        <div class="footer-info">
-          <p>
-            &copy; 2026 Muchammad Wildan Alkautsar. Built with Semantic HTML5,
-            CSS3 &amp; Vanilla JS.
+    <!-- ==================== J. FOOTER ==================== -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo" aria-label="Muchammad Wildan Home">
+            <span class="logo-box">MW</span>
+            <span class="footer-name">Muchammad Wildan Alkautsar</span>
+          </a>
+          <p class="footer-tagline">
+            Data Scientist &amp; Data Analyst focused on statistical rigor,
+            clear visual storytelling, and practical business outcomes.
           </p>
         </div>
 
-        <div class="social-links">
-          <a
-            href="https://linkedin.com/in/muchammadwr"
-            target="_blank"
-            rel="noopener noreferrer"
-            >LinkedIn</a
-          >
-          <a
-            href="https://github.com/muchammadwr"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub</a
-          >
-        </div>
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <span class="footer-heading mono">NAVIGATION</span>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
 
-        <button
-          id="back-to-top"
-          class="icon-btn back-to-top"
-          aria-label="Scroll back to top"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </button>
+        <div class="footer-social">
+          <span class="footer-heading mono">CONNECT</span>
+          <ul>
+            <li><a href="mailto:wildan.alkautsar@example.com">Email</a></li>
+            <li>
+              <a
+                href="https://linkedin.com/in/muchammad-wildan-alkautsar"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/wildanalkautsar"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li><a href="assets/cv/wildan-cv.pdf" download>Resume (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p class="mono">
+          &copy; <span id="current-year"></span> Muchammad Wildan Alkautsar. All
+          rights reserved.
+        </p>
+        <p class="mono">BUILT WITH SEMANTIC HTML5, CSS3 &amp; VANILLA JS</p>
       </div>
     </footer>
 
-    <!-- Reusable Project Case Study Zoom Modal -->
+    <!-- Scroll to Top Button -->
+    <button
+      type="button"
+      class="scroll-top-btn"
+      id="scroll-top-btn"
+      aria-label="Scroll back to top"
+      title="Back to top"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- ==================== PROJECT DETAIL MODAL ==================== -->
     <div
       class="modal-backdrop"
       id="project-modal"
@@ -598,35 +1476,45 @@
       aria-labelledby="modal-title"
       hidden
     >
-      <div class="modal-container" id="modal-dialog">
-        <button
-          type="button"
-          class="modal-close"
-          id="modal-close"
-          aria-label="Close project details"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
+      <div class="modal-dialog" role="document">
+        <header class="modal-header">
+          <div>
+            <span class="modal-meta mono" id="modal-meta"
+              >01 // DATA ANALYTICS</span
+            >
+            <h2 class="modal-title" id="modal-title">Project Title</h2>
+          </div>
+          <button
+            type="button"
+            class="modal-close"
+            id="modal-close"
+            aria-label="Close project details"
           >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </header>
 
         <div class="modal-body" id="modal-body">
-          <!-- Populated dynamically via JS -->
+          <!-- Populated dynamically by js/projects.js -->
         </div>
       </div>
     </div>
 
-    <script src="scripts/script.js"></script>
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
