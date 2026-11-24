@@ -34,7 +34,9 @@ body {
   line-height: 1.65;
   color: var(--text-main);
   background-color: var(--background);
-  transition: background-color var(--transition-theme), color var(--transition-theme);
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -72,7 +74,7 @@ ul {
   top: -100px;
   left: 16px;
   background: var(--primary);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px 16px;
   border-radius: var(--radius-sm);
   z-index: 2000;
@@ -100,7 +102,9 @@ ul {
 .section {
   padding: 96px 0;
   border-bottom: 1px solid var(--border);
-  transition: border-color var(--transition-theme), background-color var(--transition-theme);
+  transition:
+    border-color var(--transition-theme),
+    background-color var(--transition-theme);
 }
 
 .text-gradient {
@@ -158,7 +162,7 @@ ul {
 
 .btn-primary {
   background-color: var(--primary);
-  color: #FFFFFF;
+  color: #ffffff;
   box-shadow: var(--shadow-sm);
 }
 
@@ -190,7 +194,7 @@ ul {
 
 .btn-outline:hover {
   background: var(--primary);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .btn-outline:hover {
@@ -208,7 +212,9 @@ ul {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  transition: background-color var(--transition-theme), border-color var(--transition-theme);
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme);
 }
 
 .nav-container {
@@ -356,7 +362,9 @@ ul {
   width: 100%;
   height: 1.5px;
   background-color: var(--deep-navy);
-  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
 }
 
 /* ==========================================================================
@@ -377,7 +385,11 @@ ul {
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at 60% 40%, black 25%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at 60% 40%, black 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at 60% 40%,
+    black 25%,
+    transparent 80%
+  );
   pointer-events: none;
 }
 
@@ -513,6 +525,7 @@ ul {
   width: 100%;
   aspect-ratio: 4 / 4.4;
   object-fit: cover;
+  object-position: center 15%; /* Menggeser fokus gambar sedikit ke bawah */
 }
 
 .portrait-placeholder {
@@ -553,7 +566,9 @@ ul {
   margin: 48px auto 0;
   width: 100%;
   color: var(--text-secondary);
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .scroll-indicator:hover {
@@ -593,6 +608,7 @@ ul {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center 15%;
 }
 
 .about-thumb-fallback {
@@ -691,7 +707,9 @@ ul {
   border-radius: var(--radius-md);
   padding: 28px;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .skill-category-card:hover {
@@ -867,7 +885,7 @@ ul {
 .filter-btn.active {
   background: var(--primary);
   border-color: var(--primary);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .filter-btn.active {
@@ -890,7 +908,10 @@ ul {
   border-radius: var(--radius-lg);
   padding: 28px;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .project-card:hover {
@@ -1104,7 +1125,9 @@ ul {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .cert-card:hover {
@@ -1174,7 +1197,7 @@ ul {
   background: var(--gradient-banner);
   border-radius: var(--radius-lg);
   padding: 64px 48px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   box-shadow: var(--shadow-md);
 }
@@ -1186,7 +1209,7 @@ ul {
 
 .contact-tag {
   display: inline-block;
-  color: #A5F3FC;
+  color: #a5f3fc;
   font-weight: 600;
   margin-bottom: 14px;
 }
@@ -1196,7 +1219,7 @@ ul {
   font-weight: 800;
   line-height: 1.18;
   margin-bottom: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .contact-description {
@@ -1213,24 +1236,24 @@ ul {
 }
 
 .btn-white {
-  background: #FFFFFF;
-  color: #0B2545;
+  background: #ffffff;
+  color: #0b2545;
 }
 
 .btn-white:hover {
-  background: #EAF3FF;
+  background: #eaf3ff;
   transform: translateY(-1px);
 }
 
 .btn-banner-outline {
   border: 1px solid rgba(255, 255, 255, 0.45);
-  color: #FFFFFF;
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .btn-banner-outline:hover {
   background: rgba(255, 255, 255, 0.18);
-  border-color: #FFFFFF;
+  border-color: #ffffff;
 }
 
 /* ==========================================================================
@@ -1474,7 +1497,9 @@ ul {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 480ms ease, transform 480ms ease;
+  transition:
+    opacity 480ms ease,
+    transform 480ms ease;
 }
 
 .reveal.is-visible {
