@@ -18,8 +18,10 @@ const PROJECTS_DATA = [
       "Pivot Tables",
       "Statistical Profiling",
     ],
-    githubUrl: "https://github.com/wildanalkautsar",
-    liveUrl: "",
+    githubUrl:
+      "https://github.com/muchammadwr/consumer-financial-protection-bureau",
+    liveUrl:
+      "https://muchammadwr.github.io/consumer-financial-protection-bureau/",
     businessProblem:
       "Financial institutions face recurring regulatory scrutiny and customer churn when complaint spikes go undiagnosed across loan, credit, and banking product lines.",
     objectives: [
@@ -359,57 +361,29 @@ function generateProjectSvg(type, title) {
         ${generateProjectSvg(project.visualType, project.title)}
       </div>
 
-      <div class="modal-section-grid">
-        <div class="modal-block">
-          <h3>01 // BUSINESS PROBLEM</h3>
-          <p>${project.businessProblem}</p>
-        </div>
-
-        <div class="modal-block">
-          <h3>02 // PROJECT OBJECTIVES</h3>
-          <ul>
-            ${project.objectives.map((obj) => `<li>${obj}</li>`).join("")}
-          </ul>
-        </div>
-
-        <div class="modal-block">
-          <h3>03 // DATASET</h3>
-          <p>${project.dataset}</p>
-        </div>
-
-        <div class="modal-block">
-          <h3>04 // ANALYTICAL METHODOLOGY</h3>
-          <p>${project.methodology}</p>
-        </div>
-
-        <div class="modal-block">
-          <h3>05 // KEY FINDINGS</h3>
-          <ul>
-            ${project.keyFindings.map((finding) => `<li>${finding}</li>`).join("")}
-          </ul>
-        </div>
-
-        <div class="modal-block">
-          <h3>06 // EVALUATION &amp; METRICS</h3>
-          <p>${project.evaluationMetrics}</p>
-        </div>
-
-        <div class="modal-block modal-block-full">
-          <h3>07 // BUSINESS RECOMMENDATIONS</h3>
-          <ul>
-            ${project.recommendations.map((rec) => `<li>${rec}</li>`).join("")}
-          </ul>
+      <div class="modal-block modal-block-full">
+        <h3>PROJECT SUMMARY</h3>
+        <p>${project.summary}</p>
+        <div class="project-tags" style="margin-top: 16px; margin-bottom: 0;">
+          ${project.technologies.map((tech) => `<span class="tech-tag mono">${tech}</span>`).join("")}
         </div>
       </div>
 
       <div class="modal-footer-links">
         <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <span>View Repository on GitHub</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <span>GitHub Repository</span>
         </a>
         ${
           project.liveUrl
             ? `<a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                <span>Open Live Demo</span>
+                <span>Live Page</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
               </a>`
             : ""
         }
